@@ -1,3 +1,13 @@
+---
+title: Medical Legal RAG Assistant
+emoji: ⚖️🩺
+colorFrom: blue
+colorTo: green
+sdk: streamlit
+app_file: app.py
+pinned: false
+---
+
 # 📄 Medical & Legal Document QA System
 
 A conversational AI system that answers questions from medical and legal PDF documents. Upload a PDF, ask questions one by one, and get cited answers with page references.
