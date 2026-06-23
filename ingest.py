@@ -29,6 +29,21 @@ LEGAL_SECTIONS = [
     "indemnification", "governing law", "dispute resolution",
     "representations and warranties", "intellectual property",
     "force majeure", "entire agreement", "amendments", "notices",
+    "recitals",
+    "background",
+    "non-disclosure",
+    "confidentiality obligations",
+    "intellectual property",
+    "term and termination",
+    "dispute resolution",
+    "liquidated damages",
+    "general provisions",
+    "whereas",
+    "now therefore",
+    "in witness whereof",
+    "effective date",           # catches header sections
+    "agreement reference",      # catches reference number sections
+    "parties",
 ]
 
 # 1. Parse PDF
@@ -81,6 +96,18 @@ def chunk_text(text: str, source: str, domain: str) -> list[dict]:
 
     matches = list(pattern.finditer(text))
     chunks  = []
+
+    # Capture text before the first section heading starts ( means initial headers, parties, etc.)
+    if matches:
+        preamble = text[:matches[0].start()].strip()
+        if preamble and len(preamble) > 30:   # ignore tiny preambles
+            chunks.append({
+                "text": "document header and parties\n" + preamble,
+                "domain": domain,
+                "section":"header",          
+                "source": source,
+                "page": 1,                  
+            })
 
     if not matches:
         # No section headers found → sentence chunk the whole doc

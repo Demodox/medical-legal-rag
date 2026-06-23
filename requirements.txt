@@ -1,0 +1,10 @@
+pymupdf                  # PDF parsing  (import as fitz)
+spacy                    # sentence splitting
+sentence-transformers    # embeddings + cross-encoder reranker
+chromadb                 # vector store
+rank-bm25                # keyword search
+langchain-google-genai   # Gemini LLM (free primary)
+langchain-groq           # Groq LLM   (free fallback)
+streamlit                # UI
+python-dotenv            # load .env API keys
+numpy                    # vector math
