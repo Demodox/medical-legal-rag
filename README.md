@@ -12,7 +12,7 @@ pinned: false
 
 A conversational AI system that answers questions from medical and legal PDF documents. Upload a PDF, ask questions one by one, and get cited answers with page references.
 
-
+## Live demo : https://huggingface.co/spaces/Demodox/medical-legal-rag
 
 ## What it does
 
